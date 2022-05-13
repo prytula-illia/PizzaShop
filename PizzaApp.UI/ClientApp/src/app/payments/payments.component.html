@@ -1,0 +1,22 @@
+<h1>Payments</h1>
+
+<p *ngIf="!payments"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="payments">
+  <thead>
+    <tr>
+      <th>Pizza</th>
+      <th>Total</th>
+      <th>Time</th>
+      <th>Time left</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payment of payments">
+      <td><app-pizzaNaming [PizzaId]="payment.pizzaId"></app-pizzaNaming></td>
+      <td>{{ payment.price }}$</td>
+      <td>{{ payment.time }}</td>
+      <td><app-timeleft [Payment]='payment'></app-timeleft></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<h1 class="my-3 text-center">Pizza menu</h1>
+<p *ngIf="!pizzas"><em>Loading...</em></p>
+
+<div id="menu" *ngIf="pizzas">
+    <div id="pizza">
+        <app-pizza *ngFor="let pizza of pizzas" [pizza]="pizza"><br></app-pizza>
+    </div>
+</div>
+   
+
+<div class="my-5 text-center">
+    <button class="btn btn-secondary" (click)="redirectToPizzaWithIngridients()">Make your own pizza</button>
+</div>

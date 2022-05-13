@@ -1,0 +1,38 @@
+<h1 class="text-center">Make your own pizza!</h1><hr>
+<div class="my-3">
+  <p>Hint: If some of ingridients is not here go to Storage and order more of them.</p>
+  <p *ngIf="!ingridients"><em>Loading...</em></p>
+  
+  <form [formGroup]="pizzaForm" (ngSubmit)="onSubmit()" *ngIf="ingridients">
+    <label for="pname"><h3>Name your pizza:</h3></label><br>
+    <input type="text" id="pname" name="pname" maxlength="15" class="form-text text-muted w-50" formControlName="pizzaName"><br><br>
+  
+    <h3>Choose ingridients:</h3>
+      <table class='table table-striped' aria-labelledby="tableLabel">
+          <tr *ngFor="let ingridient of ingridients">
+          <td>{{ ingridient.name }}</td>
+          <td *ngIf='ingridient.count > 0'>{{ ingridient.count }}</td>
+          <td *ngIf='ingridient.count < 1'>-/-</td>
+          <td>{{ ingridient.price }}$</td>
+          <td>
+              <div>
+                  <input class="btn btn-secondary mx-1" type="button" value="+" (click)='AddIngridient(ingridient)'>
+                  <input class="btn btn-secondary mx-1" type="button" value="-" (click)='RemoveIngridient(ingridient)'>
+              </div>
+          </td>
+          </tr>
+      </table>
+    <div class="">
+      <div *ngIf="myIngridients.length > 0">
+        <h5>Your current pizza ingridients:</h5>
+        <ul>
+          <li *ngFor='let ing of myIngridients'>{{ ing.name }}</li>
+        </ul>
+      </div>
+    </div> 
+    <div class="text-center ">
+      <p>Note: Total pizza price include cheff work (50$).</p>
+      <input class="btn btn-secondary my-3" type="submit" value="Create pizza recipe">
+    </div>
+  </form>
+</div>

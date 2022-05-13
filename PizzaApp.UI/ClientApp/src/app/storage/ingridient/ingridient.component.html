@@ -1,0 +1,10 @@
+
+<div class="my-2 p-3 rounded bg-white">
+    <p *ngIf="!myIngridient"><em>Loading...</em></p>
+
+    <div *ngIf="myIngridient">
+        <h4>Name: {{ myIngridient.name }}</h4>
+        <h5>Count: {{ myIngridient.count }}</h5>
+        <h5>Price: {{ myIngridient.price }}</h5>
+    </div>
+</div>

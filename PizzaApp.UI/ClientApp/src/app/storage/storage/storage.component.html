@@ -1,0 +1,23 @@
+<div class="my-3">
+  <h1 class="my-4">Ingridients</h1>
+  <p *ngIf="!ingridients"><em>Loading...</em></p>
+  
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="ingridients">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Count</th>
+        <th>Price</th>
+        <th>Booking</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingridient of ingridients">
+        <td>{{ ingridient.name }}</td>
+        <td>{{ ingridient.count }}</td>
+        <td>{{ ingridient.price }}$</td>
+        <td><app-bookButton IngridientId='{{ ingridient.id }}'></app-bookButton></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
