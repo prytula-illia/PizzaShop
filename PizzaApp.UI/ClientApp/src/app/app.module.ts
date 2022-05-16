@@ -19,6 +19,7 @@ import { UserPizzaComponent } from './pizza/userpizza/userpizza.component';
 import { TimeLeftComponent } from './payments/timeleft/timeleft.component';
 import { TransactionErrorComponent } from './errors/transactionerror/trnsactionerror.component';
 import { FooterComponent } from './footer/footer.component';
+import { StorageErrorComponent } from './errors/storrageerror/storageerror.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FooterComponent } from './footer/footer.component';
     UserPizzaComponent,
     TimeLeftComponent,
     TransactionErrorComponent,
+    StorageErrorComponent,
     FooterComponent
   ],
   imports: [
@@ -45,6 +47,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'storageerror', component: StorageErrorComponent },
       { path: 'transactionerror', component: TransactionErrorComponent },
       { path: 'userpizza', component: UserPizzaComponent },
       { path: 'payments', component: PaymentsComponent },

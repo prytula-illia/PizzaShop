@@ -1,6 +1,5 @@
 <h1 class="text-center">Make your own pizza!</h1><hr>
 <div class="my-3">
-  <p>Hint: If some of ingridients is not here go to Storage and order more of them.</p>
   <p *ngIf="!ingridients"><em>Loading...</em></p>
   
   <form [formGroup]="pizzaForm" (ngSubmit)="onSubmit()" *ngIf="ingridients">

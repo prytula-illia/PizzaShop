@@ -47,7 +47,12 @@ export class UserPizzaComponent implements OnInit
     onSubmit(){
         var pizza = new Pizza();
         pizza.name = this.pizzaForm.controls['pizzaName'].value;
-        
+
+        if (!pizza.name) {
+
+          alert('Please, enter pizza name');
+          return;
+        }
         var ingridientIds = new Array<string>();
         var totalcost = 50.0;
         this.myIngridients.forEach(element => {
@@ -57,6 +62,12 @@ export class UserPizzaComponent implements OnInit
 
         pizza.ingridientsIds = ingridientIds;
         pizza.price = totalcost;
+
+        if (!pizza.ingridientsIds.some) {
+
+          alert('Please, add ingridients to the pizza');
+          return;
+        }
 
         this.httpClient.post<Pizza>(this.baseUrl + 'api/pizza', pizza)
             .subscribe(error => console.error(error));

@@ -5,7 +5,6 @@ using PizzaApp.DAL.Entities;
 using PizzaApp.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PizzaApp.BLL.Services
 {
@@ -38,6 +37,10 @@ namespace PizzaApp.BLL.Services
                 foreach (var ing in pizza.IngridientsIds)
                 {
                     var ingridient = _unitOfWork.Ingridients.Get(ing);
+                    if(ingridient.Count - 5 < 0)
+                    {
+                        throw new Exception("There are not enough ingridients. Book more.");
+                    }
                     ingridient.Count -= 5;
                     _unitOfWork.Ingridients.Update(ingridient);
                 }

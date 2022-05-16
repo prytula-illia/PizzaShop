@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PizzaApp.DAL.Interfaces
+﻿namespace PizzaApp.DAL.Interfaces
 {
     public interface IPizzaShopDbSettings
     {

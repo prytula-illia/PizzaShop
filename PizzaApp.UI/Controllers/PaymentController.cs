@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PizzaApp.BLL.Interfaces;
 using PizzaApp.BLL.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PizzaApp.PL.Controllers
 {
@@ -27,14 +25,21 @@ namespace PizzaApp.PL.Controllers
         [HttpPost]
         public ActionResult Create(PaymentModel payment)
         {
-            for (int i = 0; i < 3; ++i)
+            try
             {
-                if (_service.MakePayment(payment))
+                for (int i = 0; i < 3; ++i)
                 {
-                    return Ok();
+                        if (_service.MakePayment(payment))
+                        {
+                            return Ok();
+                        }
                 }
+            } 
+            catch
+            {
+                return StatusCode(500);
             }
-            
+
             return StatusCode(502);
         }
     }

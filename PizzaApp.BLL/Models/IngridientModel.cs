@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PizzaApp.BLL.Models
+﻿namespace PizzaApp.BLL.Models
 {
     public class IngridientModel
     {
